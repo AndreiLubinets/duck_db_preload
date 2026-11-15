@@ -1,0 +1,24 @@
+[package]
+name = "arrow-s3-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+arrow = "59.3"
+datafusion = "55.1"
+datafusion-flight-sql-server = "0.4.19"
+axum = "0.8"
+bytes = "1"
+futures-util = "0.3"
+prost = "0.14"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "sync", "time"] }
+tokio-stream = { version = "0.1", features = ["net"] }
+tonic = "0.14"
+tonic-prost = "0.14"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[build-dependencies]
+tonic-prost-build = "0.14"
+

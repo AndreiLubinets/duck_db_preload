@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package arrowbench.v1;
+
+service ArrowBenchmark {
+  // Simulates an S3 GetObject call and streams an Arrow IPC stream in chunks.
+  rpc StreamObject(StreamObjectRequest) returns (stream ArrowChunk);
+}
+
+message StreamObjectRequest {
+  string bucket = 1;
+  string key = 2;
+  uint64 rows = 3;
+  uint64 batch_size = 4;
+}
+
+message ArrowChunk {
+  bytes data = 1;
+}
